@@ -27,7 +27,11 @@
 		992D014820CA70590002C144 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D014720CA70590002C144 /* MockNetworkManager.swift */; };
 		992D014B20CA7CC50002C144 /* PlaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D014A20CA7CC50002C144 /* PlaceViewModelTests.swift */; };
 		992D014D20CA7CDA0002C144 /* MockPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D014C20CA7CDA0002C144 /* MockPlaceViewModel.swift */; };
-		992D015220CAA4ED0002C144 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015120CAA4ED0002C144 /* DataCache.swift */; };
+		992D015220CAA4ED0002C144 /* DataCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015120CAA4ED0002C144 /* DataCacheManager.swift */; };
+		992D015420CAB24C0002C144 /* BarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015320CAB24C0002C144 /* BarCell.swift */; };
+		992D015A20CAB5120002C144 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015920CAB5120002C144 /* Credential.swift */; };
+		992D015C20CAB6A00002C144 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015B20CAB6A00002C144 /* Reachability.swift */; };
+		992D016020CABAD90002C144 /* RequestURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015F20CABAD90002C144 /* RequestURLProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +77,11 @@
 		992D014720CA70590002C144 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		992D014A20CA7CC50002C144 /* PlaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModelTests.swift; sourceTree = "<group>"; };
 		992D014C20CA7CDA0002C144 /* MockPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlaceViewModel.swift; sourceTree = "<group>"; };
-		992D015120CAA4ED0002C144 /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
+		992D015120CAA4ED0002C144 /* DataCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCacheManager.swift; sourceTree = "<group>"; };
+		992D015320CAB24C0002C144 /* BarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCell.swift; sourceTree = "<group>"; };
+		992D015920CAB5120002C144 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		992D015B20CAB6A00002C144 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		992D015F20CABAD90002C144 /* RequestURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestURLProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 				992D010F20C8974D0002C144 /* BarFinderTests */,
 				992D011A20C8974D0002C144 /* BarFinderUITests */,
 				992D00F720C8973F0002C144 /* Products */,
+				992D016120CAC0430002C144 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,19 +133,15 @@
 		992D00F820C8973F0002C144 /* BarFinder */ = {
 			isa = PBXGroup;
 			children = (
-				992D014120CA6D9C0002C144 /* NetworkManager.swift */,
-				992D013720C8AC670002C144 /* PlaceDetailView.swift */,
-				992D013820C8AC670002C144 /* BeerListTableViewController.swift */,
-				992D013A20C8AC670002C144 /* MapViewController.swift */,
+				992D015520CAB4860002C144 /* Network */,
+				992D015620CAB4A00002C144 /* ViewModel */,
+				992D015720CAB4BB0002C144 /* Model */,
+				992D015820CAB4DB0002C144 /* ViewController */,
 				992D00F920C8973F0002C144 /* AppDelegate.swift */,
 				992D010220C8974D0002C144 /* Assets.xcassets */,
 				992D010420C8974D0002C144 /* LaunchScreen.storyboard */,
 				992D010720C8974D0002C144 /* Info.plist */,
-				992D012D20C89AAA0002C144 /* PlaceModel.swift */,
-				992D013320C8A8F60002C144 /* PlaceAnnotation.swift */,
-				992D013F20CA6A1E0002C144 /* TabBarController.swift */,
-				992D014320CA6ECD0002C144 /* PlaceViewModel.swift */,
-				992D015120CAA4ED0002C144 /* DataCache.swift */,
+				992D015B20CAB6A00002C144 /* Reachability.swift */,
 			);
 			path = BarFinder;
 			sourceTree = "<group>";
@@ -144,14 +149,12 @@
 		992D010F20C8974D0002C144 /* BarFinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				992D011220C8974D0002C144 /* Info.plist */,
 				992D012920C8993C0002C144 /* PlaceModelTests.swift */,
-				992D012F20C8A2E50002C144 /* BarResult.json */,
 				992D013520C8A9DA0002C144 /* PlaceAnnotationTests.swift */,
 				992D014520CA704A0002C144 /* NetworkManagerTests.swift */,
-				992D014720CA70590002C144 /* MockNetworkManager.swift */,
 				992D014A20CA7CC50002C144 /* PlaceViewModelTests.swift */,
-				992D014C20CA7CDA0002C144 /* MockPlaceViewModel.swift */,
+				992D015E20CABA880002C144 /* Helpers */,
+				992D011220C8974D0002C144 /* Info.plist */,
 			);
 			path = BarFinderTests;
 			sourceTree = "<group>";
@@ -163,6 +166,63 @@
 				992D011D20C8974D0002C144 /* Info.plist */,
 			);
 			path = BarFinderUITests;
+			sourceTree = "<group>";
+		};
+		992D015520CAB4860002C144 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				992D014120CA6D9C0002C144 /* NetworkManager.swift */,
+				992D015920CAB5120002C144 /* Credential.swift */,
+				992D015F20CABAD90002C144 /* RequestURLProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		992D015620CAB4A00002C144 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				992D014320CA6ECD0002C144 /* PlaceViewModel.swift */,
+				992D015120CAA4ED0002C144 /* DataCacheManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		992D015720CAB4BB0002C144 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				992D012D20C89AAA0002C144 /* PlaceModel.swift */,
+				992D013320C8A8F60002C144 /* PlaceAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		992D015820CAB4DB0002C144 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				992D013720C8AC670002C144 /* PlaceDetailView.swift */,
+				992D015320CAB24C0002C144 /* BarCell.swift */,
+				992D013A20C8AC670002C144 /* MapViewController.swift */,
+				992D013820C8AC670002C144 /* BeerListTableViewController.swift */,
+				992D013F20CA6A1E0002C144 /* TabBarController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		992D015E20CABA880002C144 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				992D014720CA70590002C144 /* MockNetworkManager.swift */,
+				992D014C20CA7CDA0002C144 /* MockPlaceViewModel.swift */,
+				992D012F20C8A2E50002C144 /* BarResult.json */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		992D016120CAC0430002C144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +293,11 @@
 				TargetAttributes = {
 					992D00F520C8973F0002C144 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					992D010B20C8974D0002C144 = {
 						CreatedOnToolsVersion = 9.3;
@@ -299,14 +364,18 @@
 			files = (
 				992D013C20C8AC670002C144 /* BeerListTableViewController.swift in Sources */,
 				992D014420CA6ECD0002C144 /* PlaceViewModel.swift in Sources */,
+				992D016020CABAD90002C144 /* RequestURLProvider.swift in Sources */,
 				992D012E20C89AAA0002C144 /* PlaceModel.swift in Sources */,
 				992D014220CA6D9C0002C144 /* NetworkManager.swift in Sources */,
+				992D015420CAB24C0002C144 /* BarCell.swift in Sources */,
 				992D013E20C8AC670002C144 /* MapViewController.swift in Sources */,
 				992D00FA20C8973F0002C144 /* AppDelegate.swift in Sources */,
-				992D015220CAA4ED0002C144 /* DataCache.swift in Sources */,
+				992D015220CAA4ED0002C144 /* DataCacheManager.swift in Sources */,
 				992D014020CA6A1E0002C144 /* TabBarController.swift in Sources */,
 				992D013B20C8AC670002C144 /* PlaceDetailView.swift in Sources */,
+				992D015A20CAB5120002C144 /* Credential.swift in Sources */,
 				992D013420C8A8F60002C144 /* PlaceAnnotation.swift in Sources */,
+				992D015C20CAB6A00002C144 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -463,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

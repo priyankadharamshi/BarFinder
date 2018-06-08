@@ -1,7 +1,7 @@
 //
 //  MapViewController.swift
 //  BarFinder
-//
+//  Displays bar results in Map view
 //  Created by Priyanka  on 06/06/18.
 //  Copyright © 2018 Priyanka. All rights reserved.
 //
@@ -32,8 +32,6 @@ class MapViewController: UIViewController {
         self.navigationItem.title = "Map View"
         setupMapView()
         
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +54,7 @@ class MapViewController: UIViewController {
             
         case .authorizedWhenInUse, .authorizedAlways:
             mapView.showsUserLocation = true
-            placeMarkers.append(contentsOf: placeViewModel.annotationResults)
+            placeMarkers.append(contentsOf: placeViewModel.annotationList)
             updateAnnotations()
         case .notDetermined:
             break
@@ -72,7 +70,7 @@ class MapViewController: UIViewController {
 // MARK:  UI methods
 extension MapViewController {
     
-    @objc func getCurrentAddressToViewController(notification: NSNotification) {
+    @objc private func getCurrentAddressToViewController(notification: NSNotification) {
         
         if let location = notification.object as? CLLocation {
             
@@ -93,7 +91,9 @@ extension MapViewController {
             mapView.heightAnchor.constraint(equalTo: view.heightAnchor)
             ])
         
-        mapView.register(PlaceDetailView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        if #available(iOS 11.0, *) {
+            mapView.register(PlaceDetailView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        }
     }
     private func updateAnnotations() {
         
@@ -109,7 +109,7 @@ extension MapViewController {
         }
     }
     
-    func centerMapOnLocation(location: CLLocation) {
+    private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
@@ -136,6 +136,15 @@ extension MapViewController {
 
 extension MapViewController: MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if #available(iOS 11.0, *) {
+            let placeDetailView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+            return placeDetailView
+        } 
+        return nil
+        
+    }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! PlaceAnnotation
@@ -151,7 +160,7 @@ extension MapViewController {
     // When data is fetched successfully
     private func successHandler (placeModel : PlaceModel) -> Void {
         placeMarkers.removeAll()
-        placeMarkers.append(contentsOf: placeViewModel.annotationResults)
+        placeMarkers.append(contentsOf: placeViewModel.annotationList)
         updateAnnotations()
         
     }
@@ -159,8 +168,19 @@ extension MapViewController {
     // When there is an error in fetching places. Http response code unauthorized, Connectivity issue
     private func failureHandler(error : Error?) -> Void {
         
-        print(error ?? "Unknown error in retrieving data")
-        showAlert(title: "Bar Finder", message: "Unknown error in retrieving data")
+        var message = "Unknown error in retrieving data"
+      
+        if let error = error  {
+            if (error as NSError).code == Credential.authErrorCode {
+                message = "Could not retrieve data from Google Places API. Invalid credentials"
+            }
+        }
+        
+        if Reachability.isConnectedToNetwork() == false {
+            message = "No internet connection found. Please try again later."
+        }
+        
+        showAlert(title: "Bar Finder", message: message)
     }
     
 }

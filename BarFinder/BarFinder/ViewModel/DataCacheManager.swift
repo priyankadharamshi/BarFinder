@@ -1,16 +1,15 @@
 //
 //  DataCache.swift
 //  BarFinder
-//
+//  Caches data for subsequent loads
 //  Created by Priyanka  on 08/06/18.
 //  Copyright © 2018 Priyanka . All rights reserved.
 //
 
 import Foundation
 
-class DataCache {
-    
-    
+class DataCacheManager {
+
     // MARK: Save objects to local disk.
     
     //Save place object

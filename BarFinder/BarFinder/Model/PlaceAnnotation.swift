@@ -1,7 +1,7 @@
 //
 //  PlaceAnnotations.swift
 //  BarFinder
-//
+//  Creates Annotation objects to display on map view
 //  Created by Priyanka  on 06/06/18.
 //  Copyright © 2018 Priyanka . All rights reserved.
 //

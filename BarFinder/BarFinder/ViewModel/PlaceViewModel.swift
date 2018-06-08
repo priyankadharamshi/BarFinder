@@ -1,7 +1,7 @@
 //
 //  PlaceViewModel.swift
 //  BarFinder
-//
+//  Handles communication between view controllers and place model.
 //  Created by Priyanka  on 08/06/18.
 //  Copyright © 2018 Priyanka . All rights reserved.
 //
@@ -19,8 +19,8 @@ protocol DataService {
 class PlaceViewModel : NSObject, DataService {
     
     var placeList: PlaceModel? = nil
-    var dataCacheManager = DataCache()
-    var annotationResults : [PlaceAnnotation] {
+    var dataCacheManager = DataCacheManager()
+    var annotationList : [PlaceAnnotation] {
         get {
             var tempAnnotations: [PlaceAnnotation] = []
             if let placeList = placeList {
@@ -61,6 +61,16 @@ extension PlaceViewModel {
             let decoder = JSONDecoder()
             let list = try decoder.decode(PlaceModel.self, from: data)
             placeList = list
+            //Special case whether Auth API key is incorrect.
+            
+            if list.errorMessage != nil {
+                
+                let errorTemp = NSError(domain:"", code: Credential.authErrorCode , userInfo:nil)
+                failureHandler(error: errorTemp)
+                
+                return
+            }
+            
             if let successBlock = successBlock {
                 successBlock(list)
                 dataCacheManager.savePlaceInfoToDisk(info: list)

@@ -1,7 +1,7 @@
 //
 //  TabBarController.swift
 //  BarFinder
-//
+//  Root view controller as container for both list and map views. 
 //  Created by Priyanka  on 08/06/18.
 //  Copyright © 2018 Priyanka . All rights reserved.
 //
@@ -52,7 +52,6 @@ class TabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-
 }
 
 // MARK: - CLLocationManager
@@ -81,7 +80,7 @@ extension TabBarController : CLLocationManagerDelegate {
     }
     
     private func statusDeniedAlert() {
-        let alertController = UIAlertController(title: "Background Location Access Disabled", message: "In order to show the location weather forecast, please open this app's settings and set location access to 'While Using'.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Background Location Access Disabled", message: "In order to show the location, please open this app's settings and set location access to 'While Using'.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Open Settings", style: .`default`, handler: { action in
             if #available(iOS 10.0, *) {

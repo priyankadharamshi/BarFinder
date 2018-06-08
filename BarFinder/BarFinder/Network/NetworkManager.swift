@@ -1,7 +1,7 @@
 //
 //  NetworkManager.swift
 //  BarFinder
-//
+//  Manages calls to Google Place API
 //  Created by Priyanka  on 08/06/18.
 //  Copyright © 2018 Priyanka. All rights reserved.
 //
@@ -14,14 +14,12 @@ protocol NetworkService {
     func fetchPlaces(nearCoordinate: CLLocationCoordinate2D, completionBlock: @escaping PlacesCompletion, errorBlock : @escaping PlacesError) -> Void
 }
 
-let googleApiKey = "AIzaSyDHpt5hkqDl-8KmT4lI7_T0UjSi5e6qtGE"
-
 typealias PlacesCompletion = (Data) -> Void
 typealias PlacesError = (Error?) -> Void
 
 class NetworkManager : NetworkService {
     
-    private var baseURLString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+   
     private var placesTask: URLSessionDataTask?
     private var session: URLSession {
         return URLSession.shared
@@ -29,7 +27,7 @@ class NetworkManager : NetworkService {
     
     func fetchPlaces(nearCoordinate: CLLocationCoordinate2D, completionBlock: @escaping PlacesCompletion, errorBlock : @escaping PlacesError) -> Void {
         
-        var urlString = baseURLString + "?location=\(nearCoordinate.latitude),\(nearCoordinate.longitude)&rankby=distance&sensor=true&key=\(googleApiKey)"
+        var urlString = RequestURLProvider().googleAPIURLString + "?location=\(nearCoordinate.latitude),\(nearCoordinate.longitude)&rankby=distance&sensor=true&key=\(Credential.googleApiKey)"
         urlString += "&types=bar"
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? urlString
         

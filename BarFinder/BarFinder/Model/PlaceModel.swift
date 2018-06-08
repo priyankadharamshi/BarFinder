@@ -1,7 +1,7 @@
 //
 //  PlaceModel.swift
 //  BarFinder
-//
+//  Converts and stores place details from JSON using Codable structs and JSONDecoder
 //  Created by Priyanka  on 06/06/18.
 //  Copyright © 2018 Priyanka . All rights reserved.
 //
@@ -13,9 +13,10 @@ struct PlaceModel: Codable {
     
     let nextPageToken: String?
     var places : [Place]
+    let errorMessage : String?
     
     private enum CodingKeys: String, CodingKey {
-        
+        case errorMessage = "error_message"
         case nextPageToken = "next_page_token"
         case places = "results"
     }

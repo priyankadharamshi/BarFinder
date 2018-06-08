@@ -1,7 +1,7 @@
 //
 //  BeerListTableViewController.swift
 //  BarFinder
-//
+//  Displays bar results in a list form.
 //  Created by Priyanka  on 06/06/18.
 //  Copyright © 2018 Priyanka. All rights reserved.
 //
@@ -26,7 +26,7 @@ class BeerListTableViewController: UITableViewController {
 
         self.title = "List View"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BarCell")
+        tableView.register(BarCell.self, forCellReuseIdentifier: "BarCell")
  
     }
     
@@ -63,9 +63,12 @@ extension BeerListTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BarCell", for: indexPath)
-        cell.textLabel?.text = self.datasource[indexPath.row].placeName
-        cell.detailTextLabel?.text = self.datasource[indexPath.row].placeAddress
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BarCell", for: indexPath) as! BarCell
+      
+        if self.datasource.count > indexPath.row {
+            cell.updateBarDetails(place: self.datasource[indexPath.row])
+        }
+
         return cell
     }
 
@@ -84,8 +87,20 @@ extension BeerListTableViewController {
     // When there is an error in fetching places. Http response code unauthorized, Connectivity issue
     private func failureHandler(error : Error?) -> Void {
         
-        print(error ?? "Unknown error in retrieving data")
-        showAlert(title: "Bar Finder", message: "Unknown error in retrieving data")
+        var message = "Unknown error in retrieving data"
+        
+        if let error = error  {
+            if (error as NSError).code == Credential.authErrorCode {
+                message = "Could not retrieve data from Google Places API. Invalid credentials"
+            }
+        }
+        
+        if Reachability.isConnectedToNetwork() == false {
+            message = "No internet connection found. Please try again later."
+        }
+        
+        showAlert(title: "Bar Finder", message: message)
+        
     }
 }
 

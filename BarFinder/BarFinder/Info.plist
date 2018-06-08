@@ -22,6 +22,8 @@
 	<string>By accessing your location, this app finds you a good bar nearby.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>By accessing your location, this app finds you a good bar nearby.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>By accessing your location, this app finds you a good bar nearby.</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

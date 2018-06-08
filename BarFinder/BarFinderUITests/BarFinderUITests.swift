@@ -28,9 +28,16 @@ class BarFinderUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testTabsExist() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+       
+        let tabBarsQuery = app.tabBars
+        XCTAssertTrue(tabBarsQuery.buttons["Map View"].exists, "Map tab exists")
+        XCTAssertTrue(tabBarsQuery.buttons["List View"].exists, "List tab exists")
+        
     }
     
 }
