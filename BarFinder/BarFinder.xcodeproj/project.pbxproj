@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		992D00FA20C8973F0002C144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D00F920C8973F0002C144 /* AppDelegate.swift */; };
+		992D010320C8974D0002C144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 992D010220C8974D0002C144 /* Assets.xcassets */; };
+		992D010620C8974D0002C144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 992D010420C8974D0002C144 /* LaunchScreen.storyboard */; };
+		992D011C20C8974D0002C144 /* BarFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D011B20C8974D0002C144 /* BarFinderUITests.swift */; };
+		992D012A20C8993C0002C144 /* PlaceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D012920C8993C0002C144 /* PlaceModelTests.swift */; };
+		992D012E20C89AAA0002C144 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D012D20C89AAA0002C144 /* PlaceModel.swift */; };
+		992D013020C8A2E50002C144 /* BarResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 992D012F20C8A2E50002C144 /* BarResult.json */; };
+		992D013220C8A7EC0002C144 /* BarResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 992D012F20C8A2E50002C144 /* BarResult.json */; };
+		992D013420C8A8F60002C144 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D013320C8A8F60002C144 /* PlaceAnnotation.swift */; };
+		992D013620C8A9DA0002C144 /* PlaceAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D013520C8A9DA0002C144 /* PlaceAnnotationTests.swift */; };
+		992D013B20C8AC670002C144 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D013720C8AC670002C144 /* PlaceDetailView.swift */; };
+		992D013C20C8AC670002C144 /* BeerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D013820C8AC670002C144 /* BeerListTableViewController.swift */; };
+		992D013E20C8AC670002C144 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D013A20C8AC670002C144 /* MapViewController.swift */; };
+		992D014020CA6A1E0002C144 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D013F20CA6A1E0002C144 /* TabBarController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		992D010D20C8974D0002C144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 992D00EE20C8973F0002C144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 992D00F520C8973F0002C144;
+			remoteInfo = BarFinder;
+		};
+		992D011820C8974D0002C144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 992D00EE20C8973F0002C144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 992D00F520C8973F0002C144;
+			remoteInfo = BarFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		992D00F620C8973F0002C144 /* BarFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		992D00F920C8973F0002C144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		992D010220C8974D0002C144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		992D010520C8974D0002C144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		992D010720C8974D0002C144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		992D010C20C8974D0002C144 /* BarFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		992D011220C8974D0002C144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		992D011720C8974D0002C144 /* BarFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		992D011B20C8974D0002C144 /* BarFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarFinderUITests.swift; sourceTree = "<group>"; };
+		992D011D20C8974D0002C144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		992D012920C8993C0002C144 /* PlaceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModelTests.swift; sourceTree = "<group>"; };
+		992D012D20C89AAA0002C144 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		992D012F20C8A2E50002C144 /* BarResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BarResult.json; sourceTree = "<group>"; };
+		992D013320C8A8F60002C144 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		992D013520C8A9DA0002C144 /* PlaceAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationTests.swift; sourceTree = "<group>"; };
+		992D013720C8AC670002C144 /* PlaceDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+		992D013820C8AC670002C144 /* BeerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerListTableViewController.swift; sourceTree = "<group>"; };
+		992D013A20C8AC670002C144 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		992D013F20CA6A1E0002C144 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		992D00F320C8973F0002C144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		992D010920C8974D0002C144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		992D011420C8974D0002C144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		992D00ED20C8973F0002C144 = {
+			isa = PBXGroup;
+			children = (
+				992D00F820C8973F0002C144 /* BarFinder */,
+				992D010F20C8974D0002C144 /* BarFinderTests */,
+				992D011A20C8974D0002C144 /* BarFinderUITests */,
+				992D00F720C8973F0002C144 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		992D00F720C8973F0002C144 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				992D00F620C8973F0002C144 /* BarFinder.app */,
+				992D010C20C8974D0002C144 /* BarFinderTests.xctest */,
+				992D011720C8974D0002C144 /* BarFinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		992D00F820C8973F0002C144 /* BarFinder */ = {
+			isa = PBXGroup;
+			children = (
+				992D013720C8AC670002C144 /* PlaceDetailView.swift */,
+				992D013820C8AC670002C144 /* BeerListTableViewController.swift */,
+				992D013A20C8AC670002C144 /* MapViewController.swift */,
+				992D00F920C8973F0002C144 /* AppDelegate.swift */,
+				992D010220C8974D0002C144 /* Assets.xcassets */,
+				992D010420C8974D0002C144 /* LaunchScreen.storyboard */,
+				992D010720C8974D0002C144 /* Info.plist */,
+				992D012D20C89AAA0002C144 /* PlaceModel.swift */,
+				992D013320C8A8F60002C144 /* PlaceAnnotation.swift */,
+				992D013F20CA6A1E0002C144 /* TabBarController.swift */,
+			);
+			path = BarFinder;
+			sourceTree = "<group>";
+		};
+		992D010F20C8974D0002C144 /* BarFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				992D011220C8974D0002C144 /* Info.plist */,
+				992D012920C8993C0002C144 /* PlaceModelTests.swift */,
+				992D012F20C8A2E50002C144 /* BarResult.json */,
+				992D013520C8A9DA0002C144 /* PlaceAnnotationTests.swift */,
+			);
+			path = BarFinderTests;
+			sourceTree = "<group>";
+		};
+		992D011A20C8974D0002C144 /* BarFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				992D011B20C8974D0002C144 /* BarFinderUITests.swift */,
+				992D011D20C8974D0002C144 /* Info.plist */,
+			);
+			path = BarFinderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		992D00F520C8973F0002C144 /* BarFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 992D012020C8974D0002C144 /* Build configuration list for PBXNativeTarget "BarFinder" */;
+			buildPhases = (
+				992D00F220C8973F0002C144 /* Sources */,
+				992D00F320C8973F0002C144 /* Frameworks */,
+				992D00F420C8973F0002C144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BarFinder;
+			productName = BarFinder;
+			productReference = 992D00F620C8973F0002C144 /* BarFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		992D010B20C8974D0002C144 /* BarFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 992D012320C8974D0002C144 /* Build configuration list for PBXNativeTarget "BarFinderTests" */;
+			buildPhases = (
+				992D010820C8974D0002C144 /* Sources */,
+				992D010920C8974D0002C144 /* Frameworks */,
+				992D010A20C8974D0002C144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				992D010E20C8974D0002C144 /* PBXTargetDependency */,
+			);
+			name = BarFinderTests;
+			productName = BarFinderTests;
+			productReference = 992D010C20C8974D0002C144 /* BarFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		992D011620C8974D0002C144 /* BarFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 992D012620C8974D0002C144 /* Build configuration list for PBXNativeTarget "BarFinderUITests" */;
+			buildPhases = (
+				992D011320C8974D0002C144 /* Sources */,
+				992D011420C8974D0002C144 /* Frameworks */,
+				992D011520C8974D0002C144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				992D011920C8974D0002C144 /* PBXTargetDependency */,
+			);
+			name = BarFinderUITests;
+			productName = BarFinderUITests;
+			productReference = 992D011720C8974D0002C144 /* BarFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		992D00EE20C8973F0002C144 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Priyanka ";
+				TargetAttributes = {
+					992D00F520C8973F0002C144 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					992D010B20C8974D0002C144 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 992D00F520C8973F0002C144;
+					};
+					992D011620C8974D0002C144 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 992D00F520C8973F0002C144;
+					};
+				};
+			};
+			buildConfigurationList = 992D00F120C8973F0002C144 /* Build configuration list for PBXProject "BarFinder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 992D00ED20C8973F0002C144;
+			productRefGroup = 992D00F720C8973F0002C144 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				992D00F520C8973F0002C144 /* BarFinder */,
+				992D010B20C8974D0002C144 /* BarFinderTests */,
+				992D011620C8974D0002C144 /* BarFinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		992D00F420C8973F0002C144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992D010620C8974D0002C144 /* LaunchScreen.storyboard in Resources */,
+				992D013220C8A7EC0002C144 /* BarResult.json in Resources */,
+				992D010320C8974D0002C144 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		992D010A20C8974D0002C144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992D013020C8A2E50002C144 /* BarResult.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		992D011520C8974D0002C144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		992D00F220C8973F0002C144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992D013C20C8AC670002C144 /* BeerListTableViewController.swift in Sources */,
+				992D012E20C89AAA0002C144 /* PlaceModel.swift in Sources */,
+				992D013E20C8AC670002C144 /* MapViewController.swift in Sources */,
+				992D00FA20C8973F0002C144 /* AppDelegate.swift in Sources */,
+				992D014020CA6A1E0002C144 /* TabBarController.swift in Sources */,
+				992D013B20C8AC670002C144 /* PlaceDetailView.swift in Sources */,
+				992D013420C8A8F60002C144 /* PlaceAnnotation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		992D010820C8974D0002C144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992D013620C8A9DA0002C144 /* PlaceAnnotationTests.swift in Sources */,
+				992D012A20C8993C0002C144 /* PlaceModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		992D011320C8974D0002C144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				992D011C20C8974D0002C144 /* BarFinderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		992D010E20C8974D0002C144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 992D00F520C8973F0002C144 /* BarFinder */;
+			targetProxy = 992D010D20C8974D0002C144 /* PBXContainerItemProxy */;
+		};
+		992D011920C8974D0002C144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 992D00F520C8973F0002C144 /* BarFinder */;
+			targetProxy = 992D011820C8974D0002C144 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		992D010420C8974D0002C144 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				992D010520C8974D0002C144 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		992D011E20C8974D0002C144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		992D011F20C8974D0002C144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		992D012120C8974D0002C144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FNTSK9F9S2;
+				INFOPLIST_FILE = BarFinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.priyanka.BarFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		992D012220C8974D0002C144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FNTSK9F9S2;
+				INFOPLIST_FILE = BarFinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.priyanka.BarFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		992D012420C8974D0002C144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FNTSK9F9S2;
+				INFOPLIST_FILE = BarFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.priyanka.BarFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarFinder.app/BarFinder";
+			};
+			name = Debug;
+		};
+		992D012520C8974D0002C144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FNTSK9F9S2;
+				INFOPLIST_FILE = BarFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.priyanka.BarFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarFinder.app/BarFinder";
+			};
+			name = Release;
+		};
+		992D012720C8974D0002C144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FNTSK9F9S2;
+				INFOPLIST_FILE = BarFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.priyanka.BarFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BarFinder;
+			};
+			name = Debug;
+		};
+		992D012820C8974D0002C144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FNTSK9F9S2;
+				INFOPLIST_FILE = BarFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.priyanka.BarFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BarFinder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		992D00F120C8973F0002C144 /* Build configuration list for PBXProject "BarFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				992D011E20C8974D0002C144 /* Debug */,
+				992D011F20C8974D0002C144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		992D012020C8974D0002C144 /* Build configuration list for PBXNativeTarget "BarFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				992D012120C8974D0002C144 /* Debug */,
+				992D012220C8974D0002C144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		992D012320C8974D0002C144 /* Build configuration list for PBXNativeTarget "BarFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				992D012420C8974D0002C144 /* Debug */,
+				992D012520C8974D0002C144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		992D012620C8974D0002C144 /* Build configuration list for PBXNativeTarget "BarFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				992D012720C8974D0002C144 /* Debug */,
+				992D012820C8974D0002C144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 992D00EE20C8973F0002C144 /* Project object */;
+}
