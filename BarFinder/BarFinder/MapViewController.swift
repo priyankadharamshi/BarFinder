@@ -12,12 +12,19 @@ import MapKit
 class MapViewController: UIViewController {
     
     // MARK: - Properties
-    var placemarkers: [PlaceAnnotation] = []
+    var placeMarkers: [PlaceAnnotation] = []
     private lazy var mapView: MKMapView = MKMapView.init(frame: self.view.bounds)
     private let regionRadius: CLLocationDistance = 1000
     private let locationManager = CLLocationManager()
     
+    var placeViewModel : PlaceViewModel!
+    
     // MARK: - View life cycle
+    
+    convenience init(placeViewModel : PlaceViewModel) {
+        self.init()
+        self.placeViewModel = placeViewModel
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,16 +101,30 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        if let clErr = error as? CLError {
+            switch clErr {
+            case CLError.locationUnknown:
+                print("location unknown")
+            case CLError.denied:
+                print("denied")
+            default:
+                print("other Core Location error")
+            }
+        } else {
+            print("other error:", error.localizedDescription)
+        }
+        
         showAlert(title: "Location Access Failure", message: "App could not access locations. Loation services may be unavailable or are turned off")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
+        guard let location = locations.last else {
             return
         }
         centerMapOnLocation(location: location)
         locationManager.stopUpdatingLocation()
-        
+
         getNewBarData(location : location)
         
         
@@ -130,8 +151,8 @@ extension MapViewController {
         
         DispatchQueue.main.async {
 
-            self.mapView.addAnnotations(self.placemarkers)
-            self.mapView.showAnnotations(self.placemarkers, animated: true)
+            self.mapView.addAnnotations(self.placeMarkers)
+            self.mapView.showAnnotations(self.placeMarkers, animated: true)
         }
     }
     
@@ -152,6 +173,7 @@ extension MapViewController {
     
     private func getNewBarData(location : CLLocation) {
         
+        placeViewModel.fetchBars(nearCoordinate: location.coordinate, completionBlock: successHandler, errorBlock: failureHandler)
 
     }
     
@@ -167,6 +189,25 @@ extension MapViewController: MKMapViewDelegate {
         let launchOptions = [MKLaunchOptionsDirectionsModeKey:
             MKLaunchOptionsDirectionsModeDriving]
         location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+    
+}
+
+extension MapViewController {
+    
+    // When data is fetched successfully
+    private func successHandler (placeModel : PlaceModel) -> Void {
+        placeMarkers.removeAll()
+        placeMarkers.append(contentsOf: placeViewModel.annotationResults)
+        updateAnnotations()
+        
+    }
+    
+    // When there is an error in fetching places. Http response code unauthorized, Connectivity issue
+    private func failureHandler(error : Error?) -> Void {
+        
+        print(error ?? "Unknown error in retrieving data")
+        showAlert(title: "Bar Finder", message: "Unknown error in retrieving data")
     }
     
 }

@@ -13,13 +13,15 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let placeViewModel = PlaceViewModel()
+        
         let nav1 = UINavigationController()
-        let beerListTableViewController = BeerListTableViewController()
+        let beerListTableViewController = BeerListTableViewController.init(placeViewModel: placeViewModel)
         nav1.viewControllers = [beerListTableViewController]
         nav1.tabBarItem = UITabBarItem(title: "List View", image: UIImage(named:"IconNav1"), tag: 0)
         
         let nav2 = UINavigationController()
-        let mapViewController = MapViewController()
+        let mapViewController = MapViewController.init(placeViewModel : placeViewModel)
         
         nav2.viewControllers = [mapViewController]
         nav2.tabBarItem = UITabBarItem(title: "Map View", image: UIImage(named:"IconNav2"), tag: 1)

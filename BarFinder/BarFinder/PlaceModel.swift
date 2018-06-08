@@ -14,17 +14,6 @@ struct PlaceModel: Codable {
     let nextPageToken: String
     var places : [Place]
     
-    var annotationResults : [PlaceAnnotation] {
-        get {
-            
-            var tempAnnotations: [PlaceAnnotation] = []
-            for place in places {
-                let annotation = PlaceAnnotation.init(withPlace: place)
-                tempAnnotations.append(annotation)
-            }
-            return tempAnnotations
-        }
-    }
     private enum CodingKeys: String, CodingKey {
         
         case nextPageToken = "next_page_token"

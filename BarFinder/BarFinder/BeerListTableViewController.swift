@@ -10,7 +10,14 @@ import UIKit
 
 class BeerListTableViewController: UITableViewController {
 
-    var tableData = ["Bar 1", "Bar 2", "Bar 3", "Bar 4"]
+    var placeViewModel : PlaceViewModel!
+    var datasource : [Place] = []
+    // MARK: - View life cycle
+    
+    convenience init(placeViewModel : PlaceViewModel) {
+        self.init()
+        self.placeViewModel = placeViewModel
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +28,14 @@ class BeerListTableViewController: UITableViewController {
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let placeList = placeViewModel.placeList {
+            datasource = placeList.places
+        }
+        self.tableView.reloadData()
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,12 +52,13 @@ extension BeerListTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.tableData.count
+        return self.datasource.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BarCell", for: indexPath)
-        cell.textLabel?.text = "This is \(self.tableData[indexPath.row])"
+        cell.textLabel?.text = self.datasource[indexPath.row].placeName
+        cell.detailTextLabel?.text = self.datasource[indexPath.row].placeAddress
         return cell
     }
 
