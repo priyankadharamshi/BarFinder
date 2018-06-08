@@ -10,11 +10,10 @@ import UIKit
 
 class BarCell: UITableViewCell {
 
-    convenience init(reuseIdentifier: String) {
-       
-        self.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
-
+    
     func updateBarDetails(place : Place) {
         
         self.textLabel?.text = place.placeName
