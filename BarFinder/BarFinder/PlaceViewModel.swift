@@ -16,10 +16,10 @@ typealias PlaceViewModelError = (Error?) -> Void
 protocol DataService {
     func fetchBars(nearCoordinate: CLLocationCoordinate2D, completionBlock: @escaping PlaceViewModelCompletion, errorBlock : @escaping PlaceViewModelError) -> Void
 }
-class PlaceViewModel : DataService {
+class PlaceViewModel : NSObject, DataService {
     
     var placeList: PlaceModel? = nil
-    
+    var dataCacheManager = DataCache()
     var annotationResults : [PlaceAnnotation] {
         get {
             var tempAnnotations: [PlaceAnnotation] = []
@@ -39,6 +39,12 @@ class PlaceViewModel : DataService {
     private var successBlock : PlaceViewModelCompletion? = nil
     private var failureBlock : PlaceViewModelError? = nil
     
+    override init() {
+        self.placeList = dataCacheManager.getPlaceInfoFromDisk()
+        super.init()
+        
+    }
+    
     func fetchBars(nearCoordinate: CLLocationCoordinate2D, completionBlock: @escaping PlaceViewModelCompletion, errorBlock: @escaping PlaceViewModelError) {
         self.successBlock = completionBlock
         self.failureBlock = errorBlock
@@ -57,6 +63,7 @@ extension PlaceViewModel {
             placeList = list
             if let successBlock = successBlock {
                 successBlock(list)
+                dataCacheManager.savePlaceInfoToDisk(info: list)
             }
     
         } catch let err {

@@ -11,7 +11,7 @@ import MapKit
 
 struct PlaceModel: Codable {
     
-    let nextPageToken: String
+    let nextPageToken: String?
     var places : [Place]
     
     private enum CodingKeys: String, CodingKey {

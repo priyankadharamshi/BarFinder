@@ -14,8 +14,7 @@ class MapViewController: UIViewController {
     // MARK: - Properties
     var placeMarkers: [PlaceAnnotation] = []
     private lazy var mapView: MKMapView = MKMapView.init(frame: self.view.bounds)
-    private let regionRadius: CLLocationDistance = 1000
-    private let locationManager = CLLocationManager()
+    private let regionRadius: CLLocationDistance = 2000
     
     var placeViewModel : PlaceViewModel!
     
@@ -29,110 +28,59 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "BarFinder: Map View"
+        self.title = "Map View"
         self.navigationItem.title = "Map View"
         setupMapView()
         
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        getLocation()
-        
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        NotificationCenter.default.addObserver(self, selector: #selector(getCurrentAddressToViewController(notification:)), name: NSNotification.Name(rawValue: "sendCurrentAddressToViewController"), object: nil)
+        updateUserLocationIfAuthorized()
         
     }
     
-}
-
-// MARK: - CLLocationManager
-
-extension MapViewController {
-    
-    private func getLocation() {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    private func updateUserLocationIfAuthorized() {
         
         let status = CLLocationManager.authorizationStatus()
-        handleLocationAuthorizationStatus(status: status)
-    }
-    
-    private func handleLocationAuthorizationStatus(status: CLAuthorizationStatus) {
+        
         switch status {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            
         case .authorizedWhenInUse, .authorizedAlways:
-            locationManager.startUpdatingLocation()
             mapView.showsUserLocation = true
-        case .denied:
-            print("I'm sorry - I can't show location. User has not authorized it")
-            statusDeniedAlert()
+            placeMarkers.append(contentsOf: placeViewModel.annotationResults)
+            updateAnnotations()
+        case .notDetermined:
+            break
         case .restricted:
-            showAlert(title: "Access to Location Services is Restricted", message: "Parental Controls or a system administrator may be limiting your access to location services. Ask them to.")
+            break
+        case .denied:
+            break
         }
-    }
-    
-    private func statusDeniedAlert() {
-        let alertController = UIAlertController(title: "Background Location Access Disabled", message: "In order to show the location weather forecast, please open this app's settings and set location access to 'While Using'.", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Open Settings", style: .`default`, handler: { action in
-            if #available(iOS 10.0, *) {
-                let settingsURL = URL(string: UIApplicationOpenSettingsURLString)!
-                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-            } else {
-                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-                    UIApplication.shared.openURL(url as URL)
-                }
-            }
-        }))
-        self.present(alertController, animated: true, completion: nil)
-    }
-   
-}
-
-// MARK: - CLLocationManagerDelegate
-extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        handleLocationAuthorizationStatus(status: status)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
-        if let clErr = error as? CLError {
-            switch clErr {
-            case CLError.locationUnknown:
-                print("location unknown")
-            case CLError.denied:
-                print("denied")
-            default:
-                print("other Core Location error")
-            }
-        } else {
-            print("other error:", error.localizedDescription)
-        }
-        
-        showAlert(title: "Location Access Failure", message: "App could not access locations. Loation services may be unavailable or are turned off")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
-        }
-        centerMapOnLocation(location: location)
-        locationManager.stopUpdatingLocation()
-
-        getNewBarData(location : location)
-        
         
     }
 }
 
 // MARK:  UI methods
 extension MapViewController {
+    
+    @objc func getCurrentAddressToViewController(notification: NSNotification) {
+        
+        if let location = notification.object as? CLLocation {
+            
+            self.centerMapOnLocation(location: location)
+            self.getNewBarData(location : location)
+        }
+        
+    }
     
     private func setupMapView() {
         
@@ -150,7 +98,12 @@ extension MapViewController {
     private func updateAnnotations() {
         
         DispatchQueue.main.async {
-
+            
+            self.mapView.annotations.forEach {
+                if !($0 is MKUserLocation) {
+                    self.mapView.removeAnnotation($0)
+                }
+            }
             self.mapView.addAnnotations(self.placeMarkers)
             self.mapView.showAnnotations(self.placeMarkers, animated: true)
         }
@@ -174,7 +127,7 @@ extension MapViewController {
     private func getNewBarData(location : CLLocation) {
         
         placeViewModel.fetchBars(nearCoordinate: location.coordinate, completionBlock: successHandler, errorBlock: failureHandler)
-
+        
     }
     
 }
@@ -223,4 +176,5 @@ extension NSLayoutConstraint {
         activate(constraints)
     }
 }
+
 

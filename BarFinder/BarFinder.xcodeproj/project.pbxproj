@@ -27,6 +27,7 @@
 		992D014820CA70590002C144 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D014720CA70590002C144 /* MockNetworkManager.swift */; };
 		992D014B20CA7CC50002C144 /* PlaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D014A20CA7CC50002C144 /* PlaceViewModelTests.swift */; };
 		992D014D20CA7CDA0002C144 /* MockPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D014C20CA7CDA0002C144 /* MockPlaceViewModel.swift */; };
+		992D015220CAA4ED0002C144 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D015120CAA4ED0002C144 /* DataCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		992D014720CA70590002C144 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		992D014A20CA7CC50002C144 /* PlaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModelTests.swift; sourceTree = "<group>"; };
 		992D014C20CA7CDA0002C144 /* MockPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlaceViewModel.swift; sourceTree = "<group>"; };
+		992D015120CAA4ED0002C144 /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				992D013320C8A8F60002C144 /* PlaceAnnotation.swift */,
 				992D013F20CA6A1E0002C144 /* TabBarController.swift */,
 				992D014320CA6ECD0002C144 /* PlaceViewModel.swift */,
+				992D015120CAA4ED0002C144 /* DataCache.swift */,
 			);
 			path = BarFinder;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				992D014220CA6D9C0002C144 /* NetworkManager.swift in Sources */,
 				992D013E20C8AC670002C144 /* MapViewController.swift in Sources */,
 				992D00FA20C8973F0002C144 /* AppDelegate.swift in Sources */,
+				992D015220CAA4ED0002C144 /* DataCache.swift in Sources */,
 				992D014020CA6A1E0002C144 /* TabBarController.swift in Sources */,
 				992D013B20C8AC670002C144 /* PlaceDetailView.swift in Sources */,
 				992D013420C8A8F60002C144 /* PlaceAnnotation.swift in Sources */,
